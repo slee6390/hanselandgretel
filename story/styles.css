@@ -1,0 +1,27 @@
+/* This is a CSS comment */
+
+/* Reset some default styles to ensure consistency across browsers */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a background color to the body */
+body {
+    background-color: #eca3a3;
+    font-family: Arial, sans-serif;
+}
+
+/* Style a heading element */
+h1 {
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Style a paragraph element */
+p {
+    color: #a63939;
+    line-height: 1.5;
+    margin: 10px;
+}
