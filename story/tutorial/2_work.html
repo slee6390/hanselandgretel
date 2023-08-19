@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="tutorial_script.js"></script>
+    <title>Try Again</title>
+</head>
+<body>
+    <div class="emulator-screen">
+        <p>Work is good, but for now, let's focus on getting rest! Click on the "Rest" button.</p>
+        <div id="choices">
+            <button disabled>Work</button>
+            <button id="rest">Rest</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("rest").addEventListener("click", function() {
+        // Change the URL to the next page's URL
+        window.location.href = "2_rest.html"
+        })
+    </script>
+</body> 
+</html>

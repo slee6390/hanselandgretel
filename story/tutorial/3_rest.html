@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="tutorial_script.js"></script>
+    <title>Try Again</title>
+</head>
+<body>
+    <div id="exposition">
+        <p>Resting is good, but your stamina is already maxed out! For now, let's try working! Click on the "Work" button.</p>
+        <div id="choices">
+            <button id="work">Work</button>
+            <button disabled>Rest</button>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById("work").addEventListener("click", function() {
+        // Change the URL to the next page's URL
+        window.location.href = "3_work.html"
+        })
+    </script>
+</body> 
+</html>

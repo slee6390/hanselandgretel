@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="tutorial_script.js"></script>
+    <title>Tutorial</title>
+</head>
+<body>
+    <div class="emulator-screen">
+        <p>For each month, you will get choices as to what you want to focus your time on for that month.
+            The building of your new gingerbread house was quite taxing, so you can see that you have used up some of your stamina.
+            First, click on “Rest” so that you can get your stamina to 100!
+        <div id="choices">
+            <button id="work">Work</button>
+            <button id="rest">Rest</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("work").addEventListener("click", function() {
+        // Change the URL to the next page's URL
+        window.location.href = "2_work.html"
+        })
+
+        document.getElementById("rest").addEventListener("click", function() {
+        // Change the URL to the next page's URL
+        window.location.href = "2_rest.html"
+        })
+    </script>
+</body> 
+</html>

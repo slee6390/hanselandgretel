@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Rest</title>
+</head>
+<body>
+    <div class="emulator-screen">
+        <p>
+            Great! Now you have restored your stamina. 
+            Your stamina maxes out at 100 and decreases whenever you decide to focus on other activities for that week.
+            Your health may be affected once your stamina is low, so be aware!
+            In order to regain stamina, you should allow yourself to rest at times.
+        </p>
+        <p>
+            Now that you have rested, it's time to earn some money! Click on "Work" for this month.
+        </p>
+        <div id="choices">
+            <button id="work">Work</button>
+            <button id="rest">Rest</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("work").addEventListener("click", function() {
+        // Change the URL to the next page's URL
+        window.location.href = "3_work.html"
+        })
+
+        document.getElementById("rest").addEventListener("click", function() {
+        // Change the URL to the next page's URL
+        window.location.href = "3_rest.html"
+        })
+    </script>
+</body> 
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="tutorial_script.js"></script>
+    <title>Encounter</title>
+</head>
+<body>
+    <div class="emulator-screen">
+        <p>
+            Your plan of selling sweets has been going well, and 
+            even after just a few weeks, the word spreads 
+            that the villagers joke that one is able to estimate how much a child of the town is pampered 
+            just by looking at how much weight the child has gained since the arrival of the witch--that's you!
+        </p>
+        <p>
+            As you happily wrap up work for the day and start on your way back home,
+            you encounter two teenagers--based on their appearances, they seem to be siblings.
+            They are both very thin and seem to be quite hungry. What do you do?
+        </p>
+        <div id="choices">
+            <button class="choice" id="approach">
+                You approach the children and share some sweets with them.
+            </button>
+            <button class="choice" id="ignore">
+                You are tired from the day that you decide to ignore the children and hurry back home to rest.
+            </button>
+        </div>
+
+    <script>
+        const choices = document.querySelectorAll(".choice");
+
+        choices.forEach(button => {
+            button.addEventListener("click", function() {
+                // from either choice in 4 to 5
+                window.location.href = "5.html"
+            })
+        })
+    </script>
+</body> 
+</html>

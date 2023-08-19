@@ -1,27 +1,54 @@
-/* This is a CSS comment */
-
-/* Reset some default styles to ensure consistency across browsers */
 body, h1, p {
     margin: 0;
     padding: 0;
 }
 
-/* Apply a background color to the body */
+/* Set the background image for the entire screen */
 body {
-    background-color: #eca3a3;
-    font-family: Arial, sans-serif;
+    background-image: url("background.png"); /* Add the path to your background image */
+    background-size: 100% auto;
+    background-repeat: no-repeat; /* Don't repeat the background image */
+    background-attachment: fixed; /* Keep the background image fixed */
+    height: 100vh; /* Set the height of the body to the viewport height */
+    background-position: center bottom; 
+}
+
+/* Center the emulator screen */
+.emulator-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Adjust the width as needed */
+    max-width: 800px; /* Maximum width for the emulator screen */
+    border: 5px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px; /* Add padding inside the emulator screen */
+    color: #fff; /* Text color inside the emulator screen */
+    text-align: center; /* Center text content horizontally */
+    background-color: #fff; /* Solid white background for the emulator box */
+}
+
+/* Style buttons, links, and other interactive elements */
+.emulator-screen button,
+.emulator-screen a {
+    background-color: #fff;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 /* Style a heading element */
 h1 {
     color: #333;
     text-align: center;
-    padding: 20px;
 }
 
 /* Style a paragraph element */
 p {
-    color: #a63939;
+    color: #2a2e39;
     line-height: 1.5;
     margin: 10px;
 }
@@ -32,15 +59,6 @@ p {
     align-items: center;
     gap: 10px;
     margin-top: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #eee;
-    border: none;
-    transition: background-color 0.3s ease;
 }
 
 button.selected {

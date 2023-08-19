@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="tutorial/tutorial_script.js"></script>
     <title>Hansel and Gretel</title>
 </head>
 <body>
-    <div id="homepage">
+    <div class="emulator-screen">
         <h1>Hansel and Gretel</h1>
         <p>Would you like to start your story?</p>
-        <button id="start">Yes</button>
+        <button id="index_start">Yes</button>
     </div>
-    
+</body> 
+
     <script>
-        document.getElementById("start").addEventListener("click", function() {
-        // Change the URL to the next page's URL
-        window.location.href = "introduction.html"
+    document.getElementById("index_start").addEventListener("click", function() {
+        // from index to 1.html
+        window.location.href = "tutorial/1.html"
         })
     </script>
-</body> 
+
 </html>
