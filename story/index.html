@@ -7,11 +7,17 @@
     <title>Hansel and Gretel</title>
 </head>
 <body>
-    <div id="introduction">
-        <p>You leave your past behind, putting on an ugly mask that you have purchased at a random village. 
-            You put on that mask, and arrive at a new village, not knowing the life that awaits you...</p>>
-        <button>Continue</button>
+    <div id="homepage">
+        <h1>Hansel and Gretel</h1>
+        <p>Would you like to start your story?</p>
+        <button id="start">Yes</button>
     </div>
-    <script src="script.js"></script>
+    
+    <script>
+        document.getElementById("start").addEventListener("click", function() {
+        // Change the URL to the next page's URL
+        window.location.href = "introduction.html"
+        })
+    </script>
 </body> 
 </html>
