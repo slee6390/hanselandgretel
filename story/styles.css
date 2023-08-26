@@ -11,6 +11,9 @@ body {
     background-attachment: fixed; /* Keep the background image fixed */
     height: 100vh; /* Set the height of the body to the viewport height */
     background-position: center bottom; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400; /* Regular weight */
+    background-color:#D9A282;
 }
 
 /* Center the emulator screen */
@@ -21,18 +24,24 @@ body {
     transform: translate(-50%, -50%);
     width: 80%; /* Adjust the width as needed */
     max-width: 800px; /* Maximum width for the emulator screen */
-    border: 5px solid #ccc;
+    border: 5px solid #8C4830;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 20px; /* Add padding inside the emulator screen */
-    color: #fff; /* Text color inside the emulator screen */
+    color: #592918; /* Text color inside the emulator screen */
     text-align: center; /* Center text content horizontally */
-    background-color: #fff; /* Solid white background for the emulator box */
+    background-color: #F2DABD;
+}
+
+.emulator-screen button:disabled {
+    background-color: #ccc; /* Grey background */
+    color: #666; /* Darker text color */
+    cursor: not-allowed; /* Change cursor to indicate not clickable */
 }
 
 /* Style buttons, links, and other interactive elements */
 .emulator-screen button,
 .emulator-screen a {
-    background-color: #fff;
+    background-color: white;
     color: #000;
     padding: 10px 20px;
     border: none;
@@ -40,15 +49,23 @@ body {
     margin-top: 10px;
 }
 
+.disabled {
+    background-color: #ccc; /* Grey background */
+    color: #666; /* Darker text color */
+    cursor: not-allowed; /* Change cursor to indicate not clickable */
+    /* Add any other styling you want for disabled buttons */
+}
+
 /* Style a heading element */
 h1 {
-    color: #333;
-    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; /* Bold weight */
+    color: #26150F;
 }
 
 /* Style a paragraph element */
 p {
-    color: #2a2e39;
+    color: #26150F;
     line-height: 1.5;
     margin: 10px;
 }
@@ -61,15 +78,85 @@ p {
     margin-top: 20px;
 }
 
-button.selected {
-    background-color: #3498db;
-    color: #fff;
-}
-
 #result {
     margin-top: 20px;
     font-weight: bold;
 }
 
+/* Style for the top container */
+.top-container {
+    display: flex;
+    background-color: #BF815E;
+    justify-content: space-between;
+    align-items: center;
+    height: auto; /* Adjust the height as needed */
+    padding: 5px; /* Adjust the padding as needed */
+    box-sizing: border-box;
+}
 
+/* Style for the centered-left element */
+.centered-left {
+    text-align: center;
+    width: 50%;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Style for the centered-right element */
+.centered-right {
+    text-align: center;
+    width: 50%;
+    font-size: 16px;
+}
+
+.stamina-container {
+    display: flex; /* Use flex display to align items horizontally */
+    align-items: center; /* Align items vertically in the center */
+    margin-top: 10px; /* Adjust the margin as needed */
+}
+
+/* Style for the stamina label */
+.stamina-label {
+    margin-right: 10px; /* Add space between label and bar */
+}
+
+/* Style for the stamina bar container */
+.stamina-bar {
+    width: 100%; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+    background-color: beige; /* Gray background for the bar */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow of the filled portion */
+    margin-top: 10px; /* Adjust the margin as needed */
+    position: relative;
+}
+
+/* Style for the filled portion of the bar */
+#stamina-fill {
+    height: 100%; /* Full height of the container */
+    width: 80%;
+    background-color: #8C4830;
+    color: beige;
+    position: relative;
+    display: flex; /* Add flex display */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+}
+
+#stamina-text {
+    position: absolute; /* Position the text inside the fill element */
+    top: 50%; /* Align vertically in the middle */
+    left: 50%; /* Align horizontally in the middle */
+    transform: translate(-50%, -50%); /* Center the text */
+    color: beige; /* Text color */
+    font-size: 14px; /* Font size */
+}
+
+#stamina-full {
+    width: 100%; /* Adjust the initial width based on stamina level */
+}
+
+#stamina-80 {
+    width: 80%; /* Adjust the initial width based on stamina level */
+}
 

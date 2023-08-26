@@ -7,13 +7,139 @@
     <title>Hansel and Gretel</title>
 </head>
 <body>
-    <div id="exposition">
-        <p>What will you focus on for Month <span id="month">1</span>?</p>
-        <div id="choices">
-            <button id="choice1">Work</button>
-            <button id="choice5">Rest</button>
+    <div class="emulator-screen">
+        <div class="top-container">
+            <div class="centered-left" id="current-month">Month: 1</div>
+            <div class="centered-right" id="gold">Gold: 100</div>
+            <div class="centered-right new" id="hansel">Hansel's trust: 0</div>
+            <div class="centered-right new" id="gretel">Gretel's trust: 0</div>
         </div>
-        <button id="continue">Continue</button>
+        <div class="stamina-container">
+            <p class="stamina-label" id="stamina">Stamina:</p>
+            <div class="stamina-bar">
+                <div id="stamina-fill">
+                    <span id="stamina-text">80</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="main-game">
+            <p>What will you focus on for Month <span id="current-month-text">1</span>?</p>
+            <div id="choices">
+                <button id="work">Work</button>
+                <button id="both" class="new">Spend time with both children</button>
+                <button id="hansel" class="new">Spend time with Hansel</button>
+                <button id="gretel" class="new">Spend time with Gretel</button>
+                <button id="rest">Rest</button>
+            </div>
+        </div>
+
+        <div class="non-main" id="hansel-gretel-work">
+            <p>On your way back from selling sweets, you catch two children who are eating away at your house! 
+                Feeling much tired and grumpy from your work, you face these two children. What do you do? </p>
+                <div id="choices">
+                    <button class="ending1">Turn them away.</button>
+                    <button class="continue">Bring them in.</button>
+                </div>
+        </div>
+
+        <div class="non-main" id="hansel-gretel-rest">
+            <p>Some sound wakes you up from your dreams. It’s the sound of two children eating away at your house! 
+                As you step outside and take a good look at the children, 
+                you realize that the children seem very malnourished and they actually seem somewhat familiar. 
+                What do you do? 
+            </p>
+                <div id="choices">
+                    <button class="ending1">Turn them away.</button>
+                    <button class="continue">Bring them in.</button>
+                </div>
+        </div>
+
+        <div class="non-main" id="ending1-screen">
+            <p>
+                You turn away the children. 
+                The children slowly leave your gingerbread house, and you soon find yourself alone in your house.
+                You continue living your life in peace, 
+                but there seems to be a loneliness that always permeates your sense of being...
+            </p>
+            <h1>The end.</h1>
+        </div>
+
+        <div class="non-main" id="continue-screen">
+            <p>
+                You bring in the two children to your gingerbread house.
+                You realize that these are the hungry-looking children you saw just last month.
+                The older boy introduces himself as Hansel, 
+                and the younger girl introduces herself as Gretel.
+                Because you have made the decision to bring in the siblings, you are now responsible for them!
+                This means greater responsibilities but also new options and events for you.
+            </p>
+            <p>
+                You will now be paying 150 gold a month to take care of these children,
+                and you will now have new choices for how to spend your month.
+                Choose wisely.
+            </p>
+            <button id="continue-continue">Continue</button>
+        </div>
+
+        <div class="non-main" id="6mo-screen">
+            <p>
+                You are at the marketplace with the children, 
+                where you overhear the stepmother brag to her friends how she got rid of her “rotten little step-brats.” 
+                Hansel and Gretel is with you, and they make an expression that tells you that they also heard the stepmother. 
+                What do you do? 
+            </p>
+            <div id="choices">
+                <button class="choices-6mo" id="candy">You confront the stepmother and turn her into a candy wrapper.</button>
+                <button class="choices-6mo" id="console">You comfort the children and tell them how much you enjoy their company.</button>
+                <button class="choices-6mo" id="ignore">You pretend you do not notice anything.</button>
+            </div>
+        </div>
+
+        <div class="non-main" id="candy-screen">
+            <p>
+                With a little flick of your hand, the stepmother is turned into a candy wrapper.
+                You turn to the children and tell them that their stepmother has gotten what she deserves.
+                They seem somewhat relieved and disturbed at the same time.
+                They thank you, but something tells you that you have also sparked fear within their minds...
+            </p>
+            <button class="continue-6mo">Continue</button>
+        </div>
+
+        <div class="non-main" id="console-screen">
+            <p>
+                You immediately get the children away from the stepmother and console them.
+                You tell them that they have done nothing wrong and reassure them that they are perfectly fine children,
+                and that you will never treat them the way their stepmother did.
+                Hand in hand, the three of you return to your gingerbread home.
+            </p>
+            <button class="continue-6mo">Continue</button>
+        </div>
+
+        <div class="non-main" id="ignore-screen">
+            <p>
+                Not wanting to stir trouble, you ignore the stepmother and continue on the way with the children,
+                pretending to not have heard anything.
+                The children do the same, but the way back home seems more silent that usual...
+            </p>
+            <button class="continue-6mo">Continue</button>
+        </div>
+
+        <div class="non-main" id="ending-intro-screen">
+            <p>
+                You hear a knock and see Hansel and Gretel’s father by the door. 
+                He thanks you for taking care of the children thus far. 
+                The father seems to regret his decisions and wishes to take his children back. 
+            </p>
+            <p>
+                You open your mouth too say something, but you make eye contact with the children.
+                That is when you realize that the matter has left your hands.
+                You decide that the matter is now left up to the children,
+                and the children will make their decision based on the last twelve months they have spent with you...
+            </p>
+            <button id="ending-continue">Proceed to Ending</button>
+        </div>
+
     </div>
     <script src="script.js"></script>
 </body> 

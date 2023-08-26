@@ -8,11 +8,24 @@
     <title>Try Again</title>
 </head>
 <body>
-    <div id="exposition">
-        <p>Resting is good, but your stamina is already maxed out! For now, let's try working! Click on the "Work" button.</p>
-        <div id="choices">
-            <button id="work">Work</button>
-            <button disabled>Rest</button>
+    <div class="emulator-screen">
+        <div class="top-container">
+            <div class="centered-left">Tutorial</div>
+            <div class="centered-right">Gold: 0</div>
+        </div>
+        <div class="stamina-container">
+            <p class="stamina-label">Stamina:</p>
+            <div class="stamina-bar">
+                <div id="stamina-fill" class="stamina-full">100</div>
+            </div>
+        </div>
+        <br>
+        <div id="exposition">
+            <p>Resting is good, but your stamina is already maxed out! For now, let's try working! Click on the "Work" button.</p>
+            <div id="choices">
+                <button id="work">Work</button>
+                <button disabled>Rest</button>
+            </div>
         </div>
     </div>
 
