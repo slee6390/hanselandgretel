@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Initialize variables
-    let currentMonthIndex = 0; 
+    let currentMonthIndex = 1; 
     let stamina = 80;
     let hansel = 0;
     let gretel = 0;
@@ -11,6 +11,24 @@ document.addEventListener("DOMContentLoaded", function() {
     let gretelEvent1Occur = false;
     let gretelEvent2Occur = false;
     let gretelEvent3Occur = false;
+    let restoreEventsOccur = false;
+    let necessaryEventsOccur = false;
+
+    // Function to hide all event screens
+    function hideAllEndingScreens() {
+        const eventScreens = document.querySelectorAll(".ending");
+        eventScreens.forEach(screen => {
+            screen.style.display = "none";
+        });
+    }
+
+    // Function to hide all event screens
+    function hideAllEventScreens() {
+        const eventScreens = document.querySelectorAll(".non-main");
+        eventScreens.forEach(screen => {
+            screen.style.display = "none";
+        });
+    }
 
     hideAllEndingScreens();
     hideAllEventScreens();
@@ -28,30 +46,25 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add event listeners to the choice buttons
     document.getElementById("work").addEventListener("click", function() {
         playerChoice("work");
-        console.log("work");
     });
 
     document.getElementById("both").addEventListener("click", function() {
         playerChoice("both");
-        console.log("both");
     });
 
     document.getElementById("hansel").addEventListener("click", function() {
         playerChoice("hansel");
-        console.log("hansel");
     });
 
     document.getElementById("gretel").addEventListener("click", function() {
         playerChoice("gretel");
-        console.log("gretel");
     });
 
     document.getElementById("rest").addEventListener("click", function() {
         playerChoice("rest"); 
-        console.log("rest");
     });
 
-    // Add event listeners for ending1 buttons
+    // Add event listeners for ending buttons
     const ending1Buttons = document.querySelectorAll(".ending1");
     ending1Buttons.forEach(button => {
         button.addEventListener("click", function() {
@@ -104,66 +117,78 @@ document.addEventListener("DOMContentLoaded", function() {
             if (stamina > 100) {
                 stamina = 100; // Set stamina to the maximum limit
             }
-            updateContent();
         }
-        // Move to the next month after each choice
-        moveToNextMonth(choice);
-    }
-
-    // Function to move to the next month
-    function moveToNextMonth(choice) {
         updateContent();
-        currentMonthIndex++;
 
-        // Check if the month is 2 and show event scenarios
         if (currentMonthIndex === 1) {
             month1(choice);
-        }
-
-        if (currentMonthIndex === 12) {
+        } else if (currentMonthIndex === 12) {
             month12();
+        } else {
+            restoreEvents();
+            necessaryEvents();
+            console.log("restore events " + restoreEventsOccur);
+            console.log("necessary events " + necessaryEventsOccur);
+            if (restoreEventsOccur === false && necessaryEventsOccur === false) {
+                specialEvents();
+            }
         }
 
-        if (currentMonthIndex > 1 && stepmotherEventOccur == false && Math.random() < 0.5) {
-            stepmotherEvent();
-            stepmotherEventOccur == true;
-        }
+        // Move to the next month after each choice
+        currentMonthIndex++;
+        restoreEventsOccur = false;
+        necessaryEventsOccur = false;
+    }
 
+    function restoreEvents() {
         if (gold <= 0) {
-            ending0();
+            restoreGold();
+            restoreEventsOccur = true;
+            console.log("restore events " + restoreEventsOccur);
         }
 
         if (stamina <= 0) {
             restoreStamina();
+            restoreEventsOccur = true;
+            console.log("restore events " + restoreEventsOccur);
         }
-        
-        if (hanselEvent1Occur === false && hansel > 40){
+    }
+
+    function necessaryEvents() {
+        if (hanselEvent1Occur === false && hansel > 40) {
             hanselEvent1();
             hanselEvent1Occur = true;
+            necessaryEventsOccur = true;
         }
 
-        if (hanselEvent2Occur === false && hansel > 40){
+        if (hanselEvent2Occur === false && hansel > 40) {
             hanselEvent2();
             hanselEvent2Occur = true;
+            necessaryEventsOccur = true;
         }
 
-        if (gretelEvent1Occur === false && gretel > 40){
+        if (gretelEvent1Occur === false && gretel > 40) {
             gretelEvent1();
             gretelEvent1Occur = true;
+            necessaryEventsOccur = true;
         }
 
-        if (gretelEvent2Occur === false && gretel > 20){
+        if (gretelEvent2Occur === false && gretel > 20) {
             gretelEvent2();
             gretelEvent2Occur = true;
+            necessaryEventsOccur = true;
         }
+    }
 
-        if (currentMonthIndex > 1 && gretelEvent3Occur === false && gretel < 20 && Math.random() < 0.8){
+    function specialEvents() {
+        if (currentMonthIndex > 1 && gold < 150 && Math.random() < 0.8) {
+            goldEvent();
+        } else if (currentMonthIndex > 1 && gretelEvent3Occur === false && gretel < 20 && Math.random() < 0.8) {
             gretelEvent3();
             gretelEvent3Occur = true;
-        }
-
-        if (currentMonthIndex > 1 && gold < 150 && Math.random() < 0.8){
-            goldEvent();
+        } else if (currentMonthIndex > 1 && stepmotherEventOccur == false && Math.random() < 0.5) {
+            stepmotherEvent();
+            stepmotherEventOccur = true;
         }
     }
 
@@ -222,27 +247,27 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("ending-intro-screen").style.display = "block";
         document.getElementById("ending-continue").addEventListener("click", function() {
             document.getElementById("ending-intro-screen").style.display = "none";
-            if (hansel >= 50 && gretel >= 50) {
-                console.log("ending2");
+            if (hansel >= 80 && gretel >= 80) {
                 ending2();
-            } else if (hansel >= 50 && gretel < 50) {
-                console.log("ending3");
+            } else if (hansel >= 80 && gretel < 80) {
                 ending3();
-            } else if (hansel < 50 && gretel >= 50) {
-                console.log("ending4");
+            } else if (hansel < 80 && gretel >= 80) {
                 ending4();
             } else {
-                console.log("ending5");
                 ending5();
             } 
         });
     }
 
-    function ending0() {
-        gold = 0;
+    function restoreGold() {
+        gold = 100;
         document.getElementById("main-game").style.display = "none";
-        document.getElementById("ending0-screen").style.display = "block";
         hideAllEventScreens();
+        document.getElementById("restore-gold").style.display = "block";
+        document.getElementById("gold-continue").addEventListener("click", function() {
+            hideAllEventScreens();
+            document.getElementById("main-game").style.display = "block";
+        });
     }
 
     function ending2() {
@@ -380,7 +405,6 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("gretel-event3").style.display = "block";
         document.getElementById("gretel-event3-continue").addEventListener("click", function() {
             gretel += 10;
-            stamina -= 10;
             hideAllEventScreens(); 
             document.getElementById("main-game").style.display = "block";
         });
@@ -388,11 +412,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function goldEvent(){
         document.getElementById("main-game").style.display = "none";
-        hideAllEventScreens();
-        document.getElementById("gold-event").style.display = "block";
-        document.getElementById("gold-event-continue").addEventListener("click", function() {
-            stamina -= 20;
-            hideAllEventScreens(); 
+        hansel -= 10;
+        gretel -= 10;
+        
+        document.getElementById("gold-event1").style.display = "block";
+
+        document.getElementById("gold-event-continue1").addEventListener("click", function() {
+            document.getElementById("gold-event1").style.display = "none";
+            document.getElementById("gold-event2").style.display = "block";
+        });
+
+        document.getElementById("gold-event-continue2").addEventListener("click", function() {
+            document.getElementById("gold-event2").style.display = "none";
+            document.getElementById("gold-event3").style.display = "block";
+        });
+
+        document.getElementById("gold-event-continue3").addEventListener("click", function() {
+            document.getElementById("gold-event3").style.display = "none";
+            document.getElementById("gold-event4").style.display = "block";
+        });
+
+        document.getElementById("gold-event-continue4").addEventListener("click", function() {
+            document.getElementById("gold-event4").style.display = "none";
             document.getElementById("main-game").style.display = "block";
         });
     }
@@ -419,22 +460,6 @@ document.addEventListener("DOMContentLoaded", function() {
             hideAllEventScreens(); // Call the function to hide all event screens
             document.getElementById("main-game").style.display = "block";
             adoption();
-        });
-    }
-
-    // Function to hide all event screens
-    function hideAllEndingScreens() {
-        const eventScreens = document.querySelectorAll(".ending");
-        eventScreens.forEach(screen => {
-            screen.style.display = "none";
-        });
-    }
-
-    // Function to hide all event screens
-    function hideAllEventScreens() {
-        const eventScreens = document.querySelectorAll(".non-main");
-        eventScreens.forEach(screen => {
-            screen.style.display = "none";
         });
     }
 
