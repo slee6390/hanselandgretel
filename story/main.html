@@ -10,9 +10,9 @@
     <div class="emulator-screen">
         <div class="top-container">
             <div class="centered-left" id="current-month">Month: 1</div>
-            <div class="centered-right" id="gold">Gold: 100</div>
-            <div class="centered-right new" id="hansel">Hansel's trust: 0</div>
-            <div class="centered-right new" id="gretel">Gretel's trust: 0</div>
+            <div class="centered-right" id="gold">Gold: 200</div>
+            <div class="centered-right new" id="hansel_trust">Hansel's trust: 0</div>
+            <div class="centered-right new" id="gretel_trust">Gretel's trust: 0</div>
         </div>
         <div class="stamina-container">
             <p class="stamina-label" id="stamina">Stamina:</p>
@@ -26,11 +26,11 @@
         <div id="main-game">
             <p>What will you focus on for Month <span id="current-month-text">1</span>?</p>
             <div id="choices">
-                <button id="work">Work</button>
-                <button id="both" class="new">Spend time with both children</button>
-                <button id="hansel" class="new">Spend time with Hansel</button>
-                <button id="gretel" class="new">Spend time with Gretel</button>
-                <button id="rest">Rest</button>
+                <button class="button" id="work">Work</button>
+                <button class="button new" id="both">Spend time with both children</button>
+                <button class="button new" id="hansel">Spend time with Hansel</button>
+                <button class="button new" id="gretel">Spend time with Gretel</button>
+                <button class="button" id="rest">Rest</button>
             </div>
         </div>
 
@@ -38,8 +38,8 @@
             <p>On your way back from selling sweets, you catch two children who are eating away at your house! 
                 Feeling much tired and grumpy from your work, you face these two children. What do you do? </p>
                 <div id="choices">
-                    <button class="ending1">Turn them away.</button>
-                    <button class="continue">Bring them in.</button>
+                    <button class="button" lass="ending1">Turn them away.</button>
+                    <button class="button continue">Bring them in.</button>
                 </div>
         </div>
 
@@ -50,12 +50,21 @@
                 What do you do? 
             </p>
                 <div id="choices">
-                    <button class="ending1">Turn them away.</button>
-                    <button class="continue">Bring them in.</button>
+                    <button class="button ending1">Turn them away.</button>
+                    <button class="button continue">Bring them in.</button>
                 </div>
         </div>
 
-        <div class="non-main" id="ending1-screen">
+        <div class="ending" id="ending0-screen">
+            <p>
+                You have run out of money.
+                With no money to support yourself or the children, 
+                you decide to return the children to their parents and leave the village.
+            </p>
+            <h1>The end.</h1>
+        </div>
+
+        <div class="ending" id="ending1-screen">
             <p>
                 You turn away the children. 
                 The children slowly leave your gingerbread house, and you soon find yourself alone in your house.
@@ -63,6 +72,64 @@
                 but there seems to be a loneliness that always permeates your sense of being...
             </p>
             <h1>The end.</h1>
+        </div>
+
+        <div class="non-main" id="restore-stamina">
+            <p>
+                You fall sick due to the lack of rest.
+                You are unable to focus on anything for this month.
+                You are able to get some rest but not much.
+            </p>
+            <button class="button" id="stamina-continue">Continue</button>
+        </div>
+
+        <div class="non-main" id="hansel-event1">
+            <p>
+                Hansel realizes his gift for making sweets, just like you! As he helps you make sweets, your earning potential increases.
+            </p>
+            <button class="button" id="hansel-event1-continue">Continue</button>
+        </div>
+
+        <div class="non-main" id="hansel-event2">
+            <p>
+                You see Hansel sampling the cookies you’ve created. 
+                You ask him what he thinks of the cookies, to which he responds with a big smile and an ongoing chatter about how much he loves your cookies.
+            </p>
+            <button class="button" id="hansel-event2-continue">Continue</button>
+        </div>
+
+        <div class="non-main" id="gretel-event1">
+            <p>
+                Gretel realizes her gift for selling sweets, as she is good at talking to people and persuading them to buy the sweets. 
+                She also comes up with clever ways to sell the sweets, increasing your earning potential.
+            </p>
+            <button class="button" id="gretel-event1-continue">Continue</button>
+        </div>
+
+        <div class="non-main" id="gretel-event2">
+            <p>
+                Gretel expresses her interest in improving her sales technique.
+                You give her a megaphone and platform shoes at the market to directly interact with the customers.
+                Thanks to the rewarding experience, it seems like Gretel has opened up a little more to you.
+            </p>
+            <button class="button" id="gretel-event2-continue">Continue</button>
+        </div>
+
+        <div class="non-main" id="gretel-event3">
+            <p>
+                You realize that Gretel has run away. She was not able to go very far, and you find her nearby. 
+                Despite your tiredness, you calm yourself down and ask her to explain why she ran away.
+                After a heartfelt conversation, your body is tired but you feel closer to Gretel.
+            </p>
+            <button class="button" id="gretel-event3-continue">Continue</button>
+        </div>
+
+        <div class="non-main" id="gold-event">
+            <p>
+                As you get low on gold, you are unable to sufficiently provide for the children. 
+                Because they are hungry, the children eat away at the house. You catch them in the act, and your stamina decreases by 20.
+            </p>
+            <button class="button" id="gold-event-continue">Continue</button>
         </div>
 
         <div class="non-main" id="continue-screen">
@@ -75,14 +142,13 @@
                 This means greater responsibilities but also new options and events for you.
             </p>
             <p>
-                You will now be paying 150 gold a month to take care of these children,
-                and you will now have new choices for how to spend your month.
+                You will now be presented with new choices and new events.
                 Choose wisely.
             </p>
-            <button id="continue-continue">Continue</button>
+            <button class="button" id="continue-continue">Continue</button>
         </div>
 
-        <div class="non-main" id="6mo-screen">
+        <div class="non-main" id="stepmother-event-screen">
             <p>
                 You are at the marketplace with the children, 
                 where you overhear the stepmother brag to her friends how she got rid of her “rotten little step-brats.” 
@@ -90,9 +156,9 @@
                 What do you do? 
             </p>
             <div id="choices">
-                <button class="choices-6mo" id="candy">You confront the stepmother and turn her into a candy wrapper.</button>
-                <button class="choices-6mo" id="console">You comfort the children and tell them how much you enjoy their company.</button>
-                <button class="choices-6mo" id="ignore">You pretend you do not notice anything.</button>
+                <button class="button stepmother-choices" id="candy">You confront the stepmother and turn her into a candy wrapper.</button>
+                <button class="button stepmother-choices" id="console">You comfort the children and tell them how much you enjoy their company.</button>
+                <button class="button stepmother-choices" id="ignore">You pretend you do not notice anything.</button>
             </div>
         </div>
 
@@ -103,7 +169,7 @@
                 They seem somewhat relieved and disturbed at the same time.
                 They thank you, but something tells you that you have also sparked fear within their minds...
             </p>
-            <button class="continue-6mo">Continue</button>
+            <button class="button stepmother-continue">Continue</button>
         </div>
 
         <div class="non-main" id="console-screen">
@@ -113,7 +179,7 @@
                 and that you will never treat them the way their stepmother did.
                 Hand in hand, the three of you return to your gingerbread home.
             </p>
-            <button class="continue-6mo">Continue</button>
+            <button class="button stepmother-continue">Continue</button>
         </div>
 
         <div class="non-main" id="ignore-screen">
@@ -122,24 +188,108 @@
                 pretending to not have heard anything.
                 The children do the same, but the way back home seems more silent that usual...
             </p>
-            <button class="continue-6mo">Continue</button>
+            <button class="button stepmother-continue">Continue</button>
         </div>
 
         <div class="non-main" id="ending-intro-screen">
-            <p>
-                You hear a knock and see Hansel and Gretel’s father by the door. 
-                He thanks you for taking care of the children thus far. 
-                The father seems to regret his decisions and wishes to take his children back. 
-            </p>
-            <p>
-                You open your mouth too say something, but you make eye contact with the children.
-                That is when you realize that the matter has left your hands.
-                You decide that the matter is now left up to the children,
-                and the children will make their decision based on the last twelve months they have spent with you...
-            </p>
+            <p>You hear a knock and see Hansel and Gretel’s father by the door. He expresses his gratitude for the care you've provided to the children during this time.</p>
+            <p>With a hint of regret in his eyes, he shares his wish to bring his children back. As you begin to respond, your gaze meets the children's, and in that moment, the weight of the decision shifts from your shoulders.</p>
+            <p>Recognizing that the choice now belongs to the children, you understand that the past twelve months have molded a bond beyond words. Their determination will be founded on the shared experiences that have unfolded under your roof, which have been shaped by your decisions.</p>
             <button id="ending-continue">Proceed to Ending</button>
         </div>
 
+        <div class="ending" id="ending2-screen1">
+            <p>In the warmth of the gingerbread house, a newfound sense of belonging takes root. Both Hansel and Gretel choose to remain by your side, their young hearts finding comfort in the love and family you've provided.</p>
+            <p>The days transform into a symphony of shared laughter, camaraderie, and the intoxicating scent of baking sweets. Hansel's gift for creating confections reaches new heights, his creativity flowing like the icing on a cake.</p>
+            <p>Gretel, with her natural charm and resourcefulness, becomes the voice that beckons customers to your humble abode. Her ability to connect with people, to tell stories with a smile, turns the gingerbread house into a cherished destination for all.</p>
+            <button id="ending2-continue1">Continue</button>
+        </div>
+        <div class="ending" id="ending2-screen2">
+            <p>As the seasons change, the bond between you and the children deepens. Their talents flourish under your guidance, the gingerbread house a canvas for their dreams and aspirations. Together, you form an unbreakable family, a trio whose love and support defy the odds.</p>
+            <p>Time weaves its intricate tapestry, and the children grow into young adults. Yet, the ties that bind remain unbroken. Hansel and Gretel embark on their own journeys, their spirits unburdened and their hearts full of gratitude.</p>
+            <p>Independence finds a home within them, an echo of the lessons learned and the strength gained. Yet, their visits to the gingerbread house continue, a testament to the enduring love that forged their paths.</p>
+            <button id="ending2-continue2">Continue</button>
+        </div>
+        <div class="ending" id="ending2-screen3">
+            <p>With each visit, the aroma of baking cookies rekindles memories of shared moments. Laughter fills the air, stories are exchanged, and the gingerbread house stands as a sanctuary of love, a haven where family transcends time.</p>
+            <p>The sweetest moments are the ones spent together—gatherings where tales are told, wisdom is shared, and the flicker of the fireplace dances in their eyes. The gingerbread house remains a constant, a reminder of the home that shaped their lives.</p>
+        </div>
+        <div class="ending" id="ending2-screen4">
+            <p>And so, in the heart of the gingerbread house, a family thrives. Hansel and Gretel, now adults, carry the torch of their shared experiences, passing it on to new generations. Their legacy lives on, not just in the recipes and traditions, but in the love that forever graces the walls of the gingerbread house.</p>
+            <p>As the sun sets on the horizon, casting a warm glow on the gingerbread walls, you find solace in the beauty of the journey. The happiness you've sowed, the bonds you've nurtured, and the family you've built have created a tapestry that time cannot unravel.</p>
+            <h1>The end.</h1>
+        </div>
+
+        <div class="ending" id="ending3-screen1">
+            <p>Gretel makes a decision to leave with her father, leaving you and Hansel. </p>
+            <p>As the days unfold in the gingerbread house, Hansel becomes a constant presence by your side. Laughter, warmth, and the aroma of freshly baked cookies fill the air, weaving a tapestry of shared memories.</p>
+            <p>Yet, with the passage of time, you begin to notice subtle changes in Hansel. His once bright smiles grow faint, replaced by a shadow of melancholy. His words become fewer, and you sense the weight of unspoken worries that hang in the air like a fog.</p>
+            <button id="ending3-continue1">Continue</button>
+        </div>
+        <div class="ending" id="ending3-screen2">
+            <p>Hansel, who once wielded his skill with cookies with unmatched finesse, now stumbles and falters in his craft. The cookies bear the mark of his distracted mind, a reflection of the thoughts that seem to consume him.</p>
+            <p>One fateful day, Hansel approaches you with a solemn expression. "I need to go back," he confesses, his voice heavy with a mixture of determination and sorrow. He speaks of Gretel, his sister, and the longing to ensure her well-being. He tells you that their father informed him of Gretel's departure, and he's decided to embark on a journey to find her.</p>
+            <p>His hug, as he bids you farewell, holds a depth of gratitude that words cannot fully express. "Thank you for everything," he says, his voice soft but sincere. "You've given us a home, a family. I won't forget this."</p>
+            <button id="ending3-continue2">Continue</button>
+        </div>
+        <div class="ending" id="ending3-screen3">
+            <p>With Hansel's departure, the gingerbread house feels emptier. The aroma of baking cookies that once enveloped the space now mingles with an unspoken ache. The loneliness settles in, a constant companion as you continue to bake cookies alone.</p>
+            <p>The house, once teeming with the laughter of two siblings, is now a place of quiet solitude. Even the sweet fragrance that wafts through its halls cannot dispel the hollow feeling that lingers in the air.</p>
+            <p>As the seasons cycle through their eternal dance, you find yourself lost in memories of Hansel and Gretel. Their presence, their laughter, and their bond remain etched in the very walls of the gingerbread house. Their absence, however, is a void that cannot be filled.</p>
+            <button id="ending3-continue3">Continue</button>
+        </div>
+        <div class="ending" id="ending3-screen4">
+            <p>Time marches on, leaving behind traces of Hansel's presence—cookie crumbs, laughter echoes, and a sense of camaraderie that defied the passage of time. Yet, the house stands as a testament to the transient nature of life.</p>
+            <p>And so, in the quiet of the gingerbread house, you stand alone with your thoughts. The bond with Hansel, now etched in memory, continues to shape your existence. The journey you shared, the moments you cherished, and the lessons you learned remain as a legacy.</p>
+            <button id="ending3-continue4">Continue</button>
+        </div>
+        <div class="ending" id="ending3-screen5">
+            <p>As you stand in the heart of the gingerbread house, the loneliness is palpable. The laughter has dimmed, the memories remain, and the days stretch ahead with a sense of quiet reflection. The departure of Hansel leaves its mark, a reminder of the connections that touch our lives, even when they are no longer present.</p>
+            <p>The gingerbread house stands as a monument to the memories of those who inhabited its walls. Hansel's departure marks a turning point, a reminder of the ebb and flow of life. And as the sun sets on another day, you find solace in the shared journey, the warmth of companionship, and the love that endures.</p>
+            <h1>The end.</h1>
+        </div>
+
+        <div class="ending" id="ending4-screen1">
+            <p>As the days and nights weave their tapestry of time, the gingerbread house becomes a refuge, a place where you and Gretel create a life of camaraderie and sweetness. The bond between you and Gretel deepens, and the walls resonate with laughter, stories, and shared moments that defy the passage of time.</p>
+            <p>Gretel flourishes under your guidance, a testament to her determination and your nurturing care. The two of you go out into the marketplace to sell delicacies together. She grows into a capable, independent young woman, and your memories with her build a foundational cornerstone of your existence.</p>
+            <p>Gretel's visits to her brother are both joyous and somber. Each time she returns, she brings tales of Hansel--how he is unable to fully enjoy his time back at his house with his father. She often comments on the foolishness of his decision, but the two of you realize that you have to respect the decision he made for himself. </p>
+            <p>The void left by his absence is palpable, a reminder of the bond that once united all three of you. The gingerbread house stands as a testament to your shared history—a history that can never be erased.</p>
+            <button id="ending4-continue1">Continue</button>
+        </div>
+        <div class="ending" id="ending4-screen2">
+            <p>One day, as the seasons turn and Gretel matures into a young adult, she approaches you with a mixture of resolve and sadness. "I've learned so much from you," she says, her voice a blend of gratitude and determination. "But I've also realized that it's time for me to explore the world on my own."</p>
+            <p>Your heart aches with a bittersweet understanding as you listen to her words. You know that Gretel's spirit is too vibrant to be confined within the walls of the gingerbread house forever. With a nod and a tender smile, you offer her your blessing, knowing that her journey is a natural evolution of her fierce independence.</p>
+            <p>Gretel's departure is a poignant moment—a reminder of the ebb and flow of life, of the inevitability of change. The gingerbread house, once bustling with life, now stands as a testament to the memories you've shared with both Hansel and Gretel. The silence is deafening, and the walls seem to echo with the laughter that once filled its halls.</p>
+            <button id="ending4-continue2">Continue</button>
+        </div>
+        <div class="ending" id="ending4-screen3">
+            <p>As the days turn into weeks and then years, the gingerbread house stands as a solitary sentinel in the landscape. You continue to bake your treats, but the sweetness is tinged with a sense of solitude. The presence of Hansel and Gretel, once so vibrant, has faded, leaving behind a void that can't be filled.</p>
+            <p>The years pass, and the gingerbread house endures as a repository of memories. The bond you forged with Hansel and Gretel leaves its indelible mark on every nook and cranny. The laughter, the stories, and the shared moments remain imprinted within its walls, a testament to a life lived fully.</p>
+            <p>Yet, despite the memories, the house is a place of echoes and shadows. The world outside moves forward, but within these walls, time stands still. The absence of Hansel and Gretel is a constant reminder of the journey that life takes, and the inevitability of separation.</p>
+            <button id="ending4-continue3">Continue</button>
+        </div>
+        <div class="ending" id="ending4-screen4">
+            <p>And so, as the sun sets on another day, you find yourself in the quiet of the gingerbread house. The laughter has faded, the stories have been told, and the journey continues. The departure of Hansel and the eventual leaving of Gretel have left their marks, and the solitude is inescapable.</p>
+            <p>As you stand in the heart of the gingerbread house, you're reminded of the ebb and flow of life's tides—the arrivals and departures that shape our existence. The bond you shared with Hansel and Gretel remains unbroken, even as the house stands as a silent witness to their absence. The journey continues, and you find solace in the memories and the love that will forever linger within these walls.</p>
+            <h1>The end.</h1>
+        </div>
+
+        <div class="ending" id="ending5-screen1">
+            <p>Both children make the decision to leave with their father--this is perhaps expected, as you recount the sense of an unexplainable rift that have seemed to form between you and the children.</p>
+            <p>The gingerbread house, once a bustling abode of shared dreams, stands silent now. The scent of baking sweets no longer brings the same joy. Regret gnaws at you, a constant reminder of the paths not taken, the moments that slipped through your fingers.</p>
+            <p>As time trickles on, the memories of the children's laughter and the warmth they brought become bittersweet. Loneliness settles in, a persistent companion. You ponder the choices made, the chances missed, and you yearn for the chance to turn back time.</p>
+            <button id="ending5-continue1">Continue</button>
+        </div>
+        <div class="ending" id="ending5-screen2">
+            <p>But life offers no rewind button, and you're left with the echoes of their departure. The gingerbread house stands as a testament to the lessons learned, a home that once was, a reminder that even with magic, some things are beyond our control.</p>
+            <p>And so, in the quiet of the gingerbread house, you navigate the corridors of your thoughts. The laughter, the shared stories, and the unspoken bonds linger like whispers in the air. The ache in your heart is a testament to the love that once bloomed, a love that now finds its place among the stars.</p>
+            <button id="ending5-continue2">Continue</button>
+        </div>
+        <div class="ending" id="ending5-screen3">
+            <p>As the moon casts its gentle glow upon the gingerbread walls, you reflect on the journey. The paths that diverged, the choices made, and the children who ventured forth. Their absence is a weight you carry, a reminder to cherish the fleeting moments and to hold tighter to the ones who remain.</p>
+            <p>The gingerbread house stands as a beacon of both joy and sorrow, its walls having witnessed a story of magic, love, and the ache of parting. And as you look out into the night, you find solace in the stars, knowing that even in their absence, the children have left their indelible mark upon your heart.</p>
+            <h1>The end.</h1>
+        </div>
     </div>
     <script src="script.js"></script>
 </body> 
