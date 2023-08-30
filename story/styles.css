@@ -134,7 +134,6 @@ p {
 /* Style for the filled portion of the bar */
 #stamina-fill {
     height: 100%; /* Full height of the container */
-    width: 80%;
     background-color: #8C4830;
     color: beige;
     position: relative;
@@ -152,11 +151,11 @@ p {
     font-size: 14px; /* Font size */
 }
 
-#stamina-full {
+.stamina-full {
     width: 100%; /* Adjust the initial width based on stamina level */
 }
 
-#stamina-80 {
+.stamina-80 {
     width: 80%; /* Adjust the initial width based on stamina level */
 }
 
