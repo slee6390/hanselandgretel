@@ -36,15 +36,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-    const buttons = document.querySelectorAll(".button");
-    buttons.forEach(button => {
-        button.addEventListener("click", function() {
-            updateMonth();
-            updateContent();
-            console.log("clicked");
-        });
-    });
-
     // Add event listeners to the choice buttons
     document.getElementById("work").addEventListener("click", function() {
         playerChoice("work");
@@ -68,37 +59,40 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // the player makes a choice --> update stamina, money, or other variables based on choice
     function playerChoice(choice) {
-        if (choice === "work") {
-            stamina -= 20;
-            if (hansel > 40 && gretel > 40) {
-                gold += 300
-            } else if (hansel > 40 && gretel < 40) {
-                gold += 250
-            } else if (hansel < 40 && gretel > 40) {
-                gold += 250
-            } else {
-                gold += 200;
-            }
-        } else if (choice === "both") {
-            stamina -= 20;
-            gold -= 100;
-            hansel += 15;
-            gretel += 10;
-        } else if (choice === "hansel") {
-            stamina -= 10;
-            gold -= 50;
-            hansel += 10;
-            gretel += 0;
-        } else if (choice === "gretel") {
-            stamina -= 10;
-            gold -= 50;
-            hansel += 5;
-            gretel += 10;
-        } else if (choice === "rest") {
-            gold -= 50;
-            stamina += 50;
-            if (stamina > 100) {
-                stamina = 100; // Set stamina to the maximum limit
+        console.log(stamina);
+        if (stamina > 10 && gold > 10) {
+            if (choice === "work") {
+                stamina -= 20;
+                if (hansel > 40 && gretel > 40) {
+                    gold += 300
+                } else if (hansel > 40 && gretel < 40) {
+                    gold += 250
+                } else if (hansel < 40 && gretel > 40) {
+                    gold += 250
+                } else {
+                    gold += 200;
+                }
+            } else if (choice === "both") {
+                stamina -= 20;
+                gold -= 100;
+                hansel += 15;
+                gretel += 10;
+            } else if (choice === "hansel") {
+                stamina -= 10;
+                gold -= 50;
+                hansel += 10;
+                gretel += 0;
+            } else if (choice === "gretel") {
+                stamina -= 10;
+                gold -= 50;
+                hansel += 5;
+                gretel += 10;
+            } else if (choice === "rest") {
+                gold -= 50;
+                stamina += 50;
+                if (stamina > 100) {
+                    stamina = 100; 
+                }
             }
         }
 
@@ -108,8 +102,10 @@ document.addEventListener("DOMContentLoaded", function() {
             month12();
         } else {
             month2_11();
+            currentMonthIndex++;
         }
 
+        updateContent();
         restoreEventsOccur = false;
         necessaryEventsOccur = false;
     }
@@ -124,9 +120,11 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("hansel-gretel-rest").style.display = "block";
         }
 
+        updateContent();
+
         document.querySelectorAll(".ending1").forEach(button => {
             button.addEventListener("click", function() {
-                hideAllEventScreens(); // Call the function to hide all event screens
+                hideAllEventScreens(); 
                 document.getElementById("ending1-screen").style.display = "block";
             }); 
         });
@@ -137,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 hideAllEventScreens();
                 document.getElementById("continue-screen").style.display = "block";
                 document.getElementById("continue-continue").addEventListener("click", function() {
-                    hideAllEventScreens(); // Call the function to hide all event screens
+                    hideAllEventScreens();
                     document.getElementById("main-game").style.display = "block";
                     adoption();
                     currentMonthIndex++;
@@ -167,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("hansel1");
         }
 
-        if (hanselEvent2Occur === false && hansel > 40) {
+        if (hanselEvent2Occur === false && hansel > 20) {
             hanselEvent2();
             hanselEvent2Occur = true;
             necessaryEventsOccur = true;
@@ -202,7 +200,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log("stepmother, special");
             }
         }
-        currentMonthIndex++;
     }
 
     function month12() {
@@ -225,75 +222,75 @@ document.addEventListener("DOMContentLoaded", function() {
     function restoreGold() {
         gold = 100;
         document.getElementById("main-game").style.display = "none";
-        hideAllEventScreens();
         document.getElementById("restore-gold").style.display = "block";
         document.getElementById("gold-continue").addEventListener("click", function() {
-            hideAllEventScreens();
+            hideAllEventScreens(); 
             document.getElementById("main-game").style.display = "block";
+            updateMonth();
         });
     }
 
     function restoreStamina() {
         stamina = 10;
         document.getElementById("main-game").style.display = "none";
-        hideAllEventScreens();
         document.getElementById("restore-stamina").style.display = "block";
         document.getElementById("stamina-continue").addEventListener("click", function() {
             hideAllEventScreens(); 
             document.getElementById("main-game").style.display = "block";
+            updateMonth();
         });
     }
 
     function hanselEvent1(){
         document.getElementById("main-game").style.display = "none";
-        hideAllEventScreens();
         document.getElementById("hansel-event1").style.display = "block";
         document.getElementById("hansel-event1-continue").addEventListener("click", function() {
             hideAllEventScreens(); 
             document.getElementById("main-game").style.display = "block";
+            updateMonth();
         });
     }
 
     function hanselEvent2(){
         document.getElementById("main-game").style.display = "none";
-        hideAllEventScreens();
         document.getElementById("hansel-event2").style.display = "block";
         document.getElementById("hansel-event2-continue").addEventListener("click", function() {
-            hansel += 10;
             hideAllEventScreens(); 
+            hansel += 10;
             document.getElementById("main-game").style.display = "block";
+            updateMonth();
         });
     }
 
     function gretelEvent1(){
         document.getElementById("main-game").style.display = "none";
-        hideAllEventScreens();
         document.getElementById("gretel-event1").style.display = "block";
         document.getElementById("gretel-event1-continue").addEventListener("click", function() {
             hideAllEventScreens(); 
             document.getElementById("main-game").style.display = "block";
+            updateMonth();
         });
     }
 
     function gretelEvent2(){
         document.getElementById("main-game").style.display = "none";
-        hideAllEventScreens();
         document.getElementById("gretel-event2").style.display = "block";
         document.getElementById("gretel-event2-continue").addEventListener("click", function() {
             gretel += 10;
             hideAllEventScreens(); 
             document.getElementById("main-game").style.display = "block";
+            updateMonth();
         });
     }
 
     function gretelEvent3(){
         document.getElementById("main-game").style.display = "none";
-        hideAllEventScreens();
         document.getElementById("gretel-event3").style.display = "block";
         document.getElementById("gretel-event3-continue").addEventListener("click", function() {
             gretel += 10;
             hideAllEventScreens(); 
             document.getElementById("main-game").style.display = "block";
+            updateMonth();
         });
     }
 
@@ -331,6 +328,7 @@ document.addEventListener("DOMContentLoaded", function() {
             button.addEventListener("click", function() {
                 hideAllEventScreens(); 
                 document.getElementById("main-game").style.display = "block";
+                updateMonth();
             });
         });
     }
@@ -360,6 +358,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("gold-event-continue4").addEventListener("click", function() {
             document.getElementById("gold-event4").style.display = "none";
             document.getElementById("main-game").style.display = "block";
+            updateMonth();
         });
     }
 
