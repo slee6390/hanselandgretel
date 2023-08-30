@@ -87,20 +87,23 @@ document.addEventListener("DOMContentLoaded", function() {
                 gold -= 50;
                 hansel += 5;
                 gretel += 10;
-            } else if (choice === "rest") {
-                gold -= 50;
-                stamina += 50;
-                if (stamina > 100) {
-                    stamina = 100; 
-                }
+            }
+        }
+
+        if (choice === "rest") {
+            gold -= 50;
+            stamina += 50;
+            if (stamina > 100) {
+                stamina = 100; 
             }
         }
 
         if (currentMonthIndex === 1) {
             month1(choice);
-        } else if (currentMonthIndex === 12) {
+        } else if (currentMonthIndex === 13) {
             month12();
         } else {
+            console.log("working");
             month2_11();
             currentMonthIndex++;
         }
@@ -152,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("gold restore");
         }
 
-        if (stamina <= 0) {
+        if (stamina <= 10) {
             restoreStamina();
             restoreEventsOccur = true;
             console.log("stamina restore");
@@ -198,6 +201,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 stepmotherEvent();
                 stepmotherEventOccur = true;
                 console.log("stepmother, special");
+            } else {
+                updateMonth();
             }
         }
     }
